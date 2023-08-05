@@ -1,0 +1,15 @@
+.form-input_group {
+  position: relative;
+}
+
+.form-input_group .form-input_control:nth-child(2) {
+  flex: 1;
+}
+
+.form-input_container.indicative .form-input--sura {
+  padding: 0px 43px 0px 17px;
+}
+
+.form-input_container.indicative .form-select--sura {
+  padding: 0px 27px 0px 25px;
+}

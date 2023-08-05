@@ -1,0 +1,32 @@
+.form-range--sura {
+  overflow: hidden;
+  z-index: 1;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+  background: transparent;
+}
+
+input[type=range]:focus::-webkit-slider-runnable-track {
+  background: transparent;
+}
+
+input[type=range]::-moz-range-track {
+  background: transparent;
+}
+
+input[type=range]::-ms-fill-lower {
+  background: transparent;
+}
+
+input[type=range]::-ms-fill-upper {
+  background: transparent;
+}
+
+input[type=range]:focus::-ms-fill-lower {
+  background: transparent;
+}
+
+input[type=range]:focus::-ms-fill-upper {
+  background: transparent;
+}
