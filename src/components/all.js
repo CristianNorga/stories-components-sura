@@ -1205,7 +1205,7 @@ app.component('radioSura', {
   </div>`,
 });
 
-
+// PASSED
 app.component('selectSura', {
 	props: {
 		pIsAux: {
