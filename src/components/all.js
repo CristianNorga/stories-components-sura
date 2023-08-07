@@ -7,6 +7,7 @@
 //ESPAÑOL {TEXT: PRUEBA} - ENGLISH {TEXT: TEST}
 //family-receive="[{from: 'typeId', change: 'type'}]"
 
+// PASSED
 app.component('inputSura', {
 	props: {
 		pIsAux: {
@@ -1203,6 +1204,7 @@ app.component('radioSura', {
    </label>
   </div>`,
 });
+
 
 app.component('selectSura', {
 	props: {

@@ -5,6 +5,14 @@ export default {
   title: 'Form/Input',
   component: Input,
   tags: ['autodocs'],
+  argTypes: {
+    pType: {
+      control: {
+        type: 'select',
+      },
+      options: ['text', 'email', 'phone', 'number', 'measures', 'email', 'A', 'C', 'E', 'P', 'R', 'T', 'D', 'N','TE', 'address', 'password'],
+    },
+  },
 };
 
 export const Default = {
@@ -47,3 +55,13 @@ export const Default = {
     pValue: null,
   }
 };
+
+export const Email = {
+  args: {
+    pType: 'email',
+    pLength: {
+      min: 4,
+      max: 254,
+    },
+  }
+}
