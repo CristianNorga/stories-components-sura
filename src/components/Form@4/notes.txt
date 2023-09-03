@@ -1,0 +1,8 @@
+1. tratar de activar el formulario sin pasar por las valdiaciones de los input.
+2. tratar de inyectar scripts en los eventos de los inputs.
+3. manager loader
+  a. tratar de separar el modulo de carga (launcher). 
+  b. generar componente loader con vite (reutilizable).
+  c. investigar que opciones existen con vite o libreria externa para manejar el estado de la carga de la app.
+  d. generar componente loader con vite interno, separado.
+4. revisar el componente input, para que acepte un objeto que contiene el regex

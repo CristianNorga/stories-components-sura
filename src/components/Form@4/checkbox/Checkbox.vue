@@ -1,13 +1,13 @@
 <script setup>
 import { computed, watch, defineProps, defineEmits, reactive, ref } from 'vue';
 import '../global.scss'
-import './radio.scss';
+import './checkbox.scss';
 
 // props
 const props = defineProps({
   pValue: {
     type: String,
-    default: '',
+    default: 'Si',
   },
   pName: {
     type: String,
@@ -21,6 +21,14 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
+  pIsCheck: {
+    type: Boolean,
+    default: false,
+  },
+  pIsStatusAfter: {
+    type: Boolean,
+    default: true,
+  },
 })
 // events
 const emits = defineEmits(['status'])
@@ -29,26 +37,27 @@ const emits = defineEmits(['status'])
 const value = ref(props.pValue || '');
 const state = reactive({
   isWarn: false,
-  isEmpty: true,
+  isCheck: props.pIsCheck,
 });
 
 // methods
 function sendStatus(val) {
   let state = {
     type: 'radio',
-    isEmpty: state.isEmpty,
+    isEmpty: !state.isCheck,
     isError: false,
     isRequired: props.pIsRequired,
     name: props.pName,
-    value: state.isEmpty ? '' : value.value,
+    value: !state.isCheck ? '' : value.value,
   };
 
-  state.isWarn = props.pIsRequired ? state.isEmpty : false;
+  state.isWarn = props.pIsRequired ? !state.isCheck : false;
   emits('status', state);
 }
 function doThis() {
-  state.isEmpty = false;
   state.isWarn = false;
+  state.isCheck = !state.isCheck;
+  props.pIsStatusAfter ? '' : sendStatus(true);
 }
 
 // Lifecycle
@@ -65,14 +74,20 @@ const classInput = computed(() => {
 watch(() => props.pIsVerifying, (val) => {
   if (val) sendStatus(val);
 })
+watch(() => props.pValue, (val) => {
+  value.value = val;
+})
+watch(() => props.pIsCheck, (val) => {
+  state.isCheck = val;
+})
 
 </script>
 
 <template>
   <div class="form-input_container--wlh">
    <label class="input_label_custom"><slot name="label"></slot>
-    <input :class="classInput" @click="doThis" type="radio" :name="pName" class="form-checkbox--sura" required="pIsRequired" :value="value">
-    <span class="checkmark--radio"></span>
+    <input @click="doThis" type="checkbox" :name="pName" class="form-checkbox--sura" required="pIsRequired" :value="value" v-model="state.isCheck">
+    <span :class="classInput" class="checkmark--checkbox"></span>
    </label>
   </div>
 </template>

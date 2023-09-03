@@ -772,6 +772,7 @@ app.component('textareaSura', {
 
 // realizar un componente de email por aparte
 
+// PASSED
 app.component('checkboxSura', {
 	props: {
 		pValue: {
@@ -3409,6 +3410,9 @@ app.component('formSura', {
 			let contentDetail = window.contentDetail || {};
 			test = this.state.inputs;
 
+			// ### !!!!
+			// sanitize values with https://www.npmjs.com/package/dompurify
+			// ### !!!!
 			this.state.inputs.forEach((item) => {
 				attributes.push(`"${item.name}":"${encodeURIComponent(item.value)}"`);
 				if (item.type === 'email') {
