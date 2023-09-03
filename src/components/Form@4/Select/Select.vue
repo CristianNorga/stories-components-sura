@@ -1,5 +1,5 @@
 <script setup>
-import './global.css'
+import '../global.scss'
 import { ref, reactive, watch, defineProps, defineEmits, onBeforeMount } from 'vue';
 
 // props

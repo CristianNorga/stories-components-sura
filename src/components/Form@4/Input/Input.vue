@@ -1,6 +1,6 @@
 <script setup>
-import './global.css'
-import './input.css';
+import '../global.scss'
+import './input.scss';
 import { onBeforeMount, computed, watch, defineProps, defineEmits, reactive, ref } from 'vue';
 
 // props
