@@ -1,7 +1,7 @@
 <script setup>
 import { computed, watch, defineProps, defineEmits, reactive, ref } from 'vue';
 import '../global.scss'
-import './checkbox.scss';
+import './switch.scss';
 
 // props
 const props = defineProps({
@@ -17,11 +17,15 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
-  pIsVerifying: {
+  pIsCheck: {
     type: Boolean,
     default: false,
   },
-  pIsCheck: {
+  pSideLabel: {
+    type: String,
+    default: 'left',
+  },
+  pIsVerifying: {
     type: Boolean,
     default: false,
   },
@@ -69,6 +73,9 @@ const classInput = computed(() => {
     'radio-warn': state.isWarn,
   };
 })
+const sideLabel = computed(() => {
+  return props.pSideLabel == 'left' ? 'order: 1' : 'order: -1';
+})
 
 // watch
 watch(() => props.pIsVerifying, (val) => {
@@ -84,10 +91,12 @@ watch(() => props.pIsCheck, (val) => {
 </script>
 
 <template>
-  <div class="form-input_container--wlh">
-   <label class="input_label_custom"><slot name="label"></slot>
-    <input @click="doThis" type="checkbox" :name="props.pName" class="form-checkbox--sura" :value="value" v-model="state.isCheck">
-    <span :class="classInput" class="checkmark--checkbox"></span>
-   </label>
+  <div class="form-input_container--wlh align-items-center">
+    <slot class="slot-label" name="label"></slot>
+    <label class="input-label-switche position-relative d-block" :style="sideLabel">
+      <input @click="doThis" type="checkbox" :name="props.pName" class="position-absolute end-0"
+        :value="value" v-model="state.isCheck">
+      <i class="fw-normal fst-normal rounded rounded-pill position-absolute top-0 start-0"></i>
+    </label>
   </div>
 </template>

@@ -1,8 +1,8 @@
-import Checkbox from './Checkbox.vue';
+import Switch from './Switch.vue';
 
 export default {
-  title: 'Form/Checkbox',
-  component: Checkbox,
+  title: 'Form/Switch',
+  component: Switch,
   tags: ['autodocs'],
   argTypes: {
     

@@ -71,7 +71,7 @@ watch(() => props.pIsVerifying, (val) => {
 <template>
   <div class="form-input_container--wlh">
    <label class="input_label_custom"><slot name="label"></slot>
-    <input :class="classInput" @click="doThis" type="radio" :name="pName" class="form-checkbox--sura" required="pIsRequired" :value="value">
+    <input :class="classInput" @click="doThis" type="radio" :name="props.pName" class="form-checkbox--sura" :value="value">
     <span class="checkmark--radio"></span>
    </label>
   </div>

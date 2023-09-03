@@ -858,6 +858,7 @@ app.component('checkboxSura', {
   </div>`,
 });
 
+// PASSED
 app.component('switcheSura', {
 	props: {
 		pValue: {

@@ -9,8 +9,11 @@ export default {
   },
 };
 
-export const Default = (args, { argTypes }) => ({
-  props: Object.keys(argTypes),
-  components: { Radio },
-  template: '<Radio v-bind="$props" />',
-});
+export const Default = {
+  args: {
+    pValue: 'Si',
+    pName: '',
+    pIsRequired: false,
+    pIsVerifying: false,
+  }
+};
